@@ -3,17 +3,27 @@ Vulnerability type detection in source code is essential for securing modern sof
 
 # Design of MVP
 <div align="center">
-  < img src="https://github.com/XUPT-SSS/MVP/blob/main/overview_1.jpg">
+  <img src="https://github.com/XUPT-SSS/MVP/blob/main/overview_1.jpg">
 </div>
 
 # Datasets
-
+The dataset can be downloaded at:
 # Source
-
 ## Step1:Code normalization
-
+```
+cd preprocess
+python normalization.py
+```
 ## Step2:Pretrain
-
+```
+cd ..
+python pretrain.py
+```
 ## Step3:Description embedding
-
+```
+python cwe_desc.py
+```
 ## Step4:Meta-train
+```
+python meta_train.py
+```
