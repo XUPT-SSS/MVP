@@ -3,7 +3,7 @@ Vulnerability type detection in source code is essential for securing modern sof
 
 # Design of MVP
 <div align="center">
-  < img src="https://github.com/XUPT-SSS/MVP/main/frame.jpg">
+  < img src="https://github.com/XUPT-SSS/MVP/blob/main/overview_1.jpg">
 </div>
 
 # Datasets
