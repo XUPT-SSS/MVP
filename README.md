@@ -7,7 +7,7 @@ Vulnerability type detection in source code is essential for securing modern sof
 </div>
 
 ## Requirements
-The following libraries are required to run the MVP framework:
+Make sure to install the following major libraries to setup the environment of MVP framework:
 - **Python** >= 3.8  
 - **PyTorch** == 2.0.1  
 - **Torchvision** == 0.15.2  
@@ -19,44 +19,27 @@ The following libraries are required to run the MVP framework:
 - **Pandas** == 2.2.2
 
 # Datasets
-Our evaluation leverages two well-established vulnerability
-datasets, TrVD and PrimeVul. A brief description of
-these two datasets is provided below.
-• TrVD dataset is constructed based on the Software As-
-surance Reference Dataset (SARD), which contains
-mainly synthetic vulnerability samples derived from vari-
-ous sources such as publicly disclosed security incidents,
-historical vulnerability reports, and software versions with
-known fixes. In total, TrVD contains 98,181 vulnerable
-functions annotated with 85 vulnerability types.
-• PrimeVul dataset is built by integrating and recon-
-structing four existing real-world vulnerability datasets,
-including BigVul, CrossVul, CVEfixes and DiverseVul. It
-offers more accurate and consistent ground-truth annota-
-tions, through rigorous data deduplication and a language
-model-based labeling approach that achieves human-level
-accuracy. The dataset contains 6,004 vulnerable samples
-across 128 vulnerability types.The dataset can be downloaded at:https://drive.google.com/drive/folders/1lbedAH64v7hlHGeIWJSGfVYkhFb-T5pA?usp=drive_link
+The TrVD and PrimeVul datasets used in our evaluation can be downloaded from: https://drive.google.com/drive/folders/1lbedAH64v7hlHGeIWJSGfVYkhFb-T5pA?usp=drive_link
 # Source
-## Step1:Code normalization
+## Step1: Code normalization
 Normalize the raw source code to remove noise such as comments, inconsistent indentation, and redundant symbols.
 ```
 cd preprocess
 python normalization.py
 ```
-## Step2:Pretrain
+## Step2: Pretrain
 Pretrain the model on normalized source code to learn general-purpose code representations.
 ```
 cd ..
 python pretrain.py
 ```
-## Step3:Description embedding
+## Step3: Description embedding
 Extract semantic embeddings for CWE vulnerability descriptions.
 These embeddings act as semantic prompts that guide the feature extraction process during meta-learning.
 ```
 python cwe_desc.py
 ```
-## Step4:Meta-training and Meta-testing
+## Step4: Meta-training and Meta-testing
 Perform episodic meta-training and meta-testing under few-shot settings.
 During training, the model learns to rapidly adapt to new vulnerability types; during testing, it is evaluated on unseen or rare categories.
 ```
