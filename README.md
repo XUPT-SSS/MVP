@@ -6,15 +6,17 @@ Vulnerability type detection in source code is essential for securing modern sof
   <img src="https://github.com/XUPT-SSS/MVP/blob/main/overview_1.jpg">
 </div>
 
-# Requirements
-torch==2.0.1
-torchvision==0.15.2
-tokenizers==0.19.1
-transformers==4.40.2
-tree_sitter==0.20.1
-numpy==1.26.0
-scikit-learn==1.4.2
-pandas==2.2.2
+## Requirements
+The following libraries are required to run the MVP framework:
+- **Python** >= 3.8  
+- **PyTorch** == 2.0.1  
+- **Torchvision** == 0.15.2  
+- **Transformers** == 4.40.2  
+- **Tokenizers** == 0.19.1  
+- **Tree-sitter** == 0.20.1  
+- **NumPy** == 1.26.0  
+- **Scikit-learn** == 1.4.2  
+- **Pandas** == 2.2.2
 
 # Datasets
 The dataset can be downloaded at:https://drive.google.com/drive/folders/1lbedAH64v7hlHGeIWJSGfVYkhFb-T5pA?usp=drive_link
