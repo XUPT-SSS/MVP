@@ -20,20 +20,26 @@ pandas==2.2.2
 The dataset can be downloaded at:https://drive.google.com/drive/folders/1lbedAH64v7hlHGeIWJSGfVYkhFb-T5pA?usp=drive_link
 # Source
 ## Step1:Code normalization
+Normalize the raw source code to remove noise such as comments, inconsistent indentation, and redundant symbols.
 ```
 cd preprocess
 python normalization.py
 ```
 ## Step2:Pretrain
+Pretrain the model on normalized source code to learn general-purpose code representations.
 ```
 cd ..
 python pretrain.py
 ```
 ## Step3:Description embedding
+Extract semantic embeddings for CWE vulnerability descriptions.
+These embeddings act as semantic prompts that guide the feature extraction process during meta-learning.
 ```
 python cwe_desc.py
 ```
-## Step4:Meta-train and Meta-test
+## Step4:Meta-training and Meta-testing
+Perform episodic meta-training and meta-testing under few-shot settings.
+During training, the model learns to rapidly adapt to new vulnerability types; during testing, it is evaluated on unseen or rare categories.
 ```
 python meta_train.py
 ```
