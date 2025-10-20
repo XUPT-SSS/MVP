@@ -19,7 +19,24 @@ The following libraries are required to run the MVP framework:
 - **Pandas** == 2.2.2
 
 # Datasets
-The dataset can be downloaded at:https://drive.google.com/drive/folders/1lbedAH64v7hlHGeIWJSGfVYkhFb-T5pA?usp=drive_link
+Our evaluation leverages two well-established vulnerability
+datasets, TrVD and PrimeVul. A brief description of
+these two datasets is provided below.
+• TrVD dataset is constructed based on the Software As-
+surance Reference Dataset (SARD), which contains
+mainly synthetic vulnerability samples derived from vari-
+ous sources such as publicly disclosed security incidents,
+historical vulnerability reports, and software versions with
+known fixes. In total, TrVD contains 98,181 vulnerable
+functions annotated with 85 vulnerability types.
+• PrimeVul dataset is built by integrating and recon-
+structing four existing real-world vulnerability datasets,
+including BigVul, CrossVul, CVEfixes and DiverseVul. It
+offers more accurate and consistent ground-truth annota-
+tions, through rigorous data deduplication and a language
+model-based labeling approach that achieves human-level
+accuracy. The dataset contains 6,004 vulnerable samples
+across 128 vulnerability types.The dataset can be downloaded at:https://drive.google.com/drive/folders/1lbedAH64v7hlHGeIWJSGfVYkhFb-T5pA?usp=drive_link
 # Source
 ## Step1:Code normalization
 Normalize the raw source code to remove noise such as comments, inconsistent indentation, and redundant symbols.
