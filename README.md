@@ -23,7 +23,7 @@ python pretrain.py
 ```
 python cwe_desc.py
 ```
-## Step4:Meta-train
+## Step4:Meta-train and Meta-test
 ```
 python meta_train.py
 ```
