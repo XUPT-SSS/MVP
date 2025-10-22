@@ -2,8 +2,8 @@ import os
 import re
 import pandas as pd
 
-train_dataset_path = './sard/train.csv' 
-test_dataset_path = './sard/test.csv'  
+train_dataset_path = './train.csv' 
+test_dataset_path = './test.csv'  
 
 def load_code_dataset(dataset_path):
     dataset = []  # 初始化一个空列表来存储数据集
@@ -52,5 +52,6 @@ class DatasetWithTextLabel(object):
 # code, label = man[180]
 # print(f'code:{code}')
 # print(f'label:{label}')
+
 
 
