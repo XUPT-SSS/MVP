@@ -18,7 +18,7 @@ class TextCNN(nn.Module):
 
     def forward(self, x):
         # x = [batch size, sent len]
-        x = self.embedding(x)    
+        # x = self.embedding(x)    
         # x = [batch size, sent len, emb dim]
         x = x.unsqueeze(1)     
         # x = [batch size, 1, sent len, emb dim]
