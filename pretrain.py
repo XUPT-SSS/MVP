@@ -7,9 +7,9 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 
-from transformer import TransformerClassifier
-from Text_CNN import TextCNN
-from TransformerTextCNN import TransformerTextCNN
+from model.transformer import TransformerClassifier
+from model.Text_CNN import TextCNN
+from model.TransformerTextCNN import TransformerTextCNN
 from dataset import DatasetWithTextLabel
 
 
