@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.metrics import precision_score, recall_score, f1_score
 
 DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-MAX_LENGTH = 128  # 也可以通过参数传入
+MAX_LENGTH = 128
 
 def test(model, test_dataset, tokenizer, embedding_dict, num_classes_test, test_way=20, shot=5, output_file_path=None):
     model.eval()
