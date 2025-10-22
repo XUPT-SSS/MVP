@@ -1,7 +1,7 @@
 import os
 import re
 import pandas as pd
-# 定义训练、验证和测试数据集的文件路径
+
 train_dataset_path = './sard/train.csv' 
 test_dataset_path = './sard/test.csv'  
 
@@ -52,4 +52,5 @@ class DatasetWithTextLabel(object):
 # code, label = man[180]
 # print(f'code:{code}')
 # print(f'label:{label}')
+
 
