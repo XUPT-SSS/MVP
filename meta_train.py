@@ -11,12 +11,11 @@ from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 from sklearn.metrics import classification_report, precision_score, recall_score, f1_score
 from meta_test import test
-from transformer1 import TransformerClassifier
-from Text_CNN import TextCNN
-from TransformerTextCNN import TransformerTextCNN
+from model.transformer import TransformerClassifier
+from model.TextCNN import TextCNN
+from model.TransformerTextCNN import TransformerTextCNN
 from dataset import DatasetWithTextLabel
 from dataloader import EpisodeSampler
-from utils import mean_confidence_interval
 
 
 def seed_everything(seed=42):
