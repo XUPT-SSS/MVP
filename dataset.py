@@ -2,8 +2,8 @@ import os
 import re
 import pandas as pd
 
-train_dataset_path = './train.csv' 
-test_dataset_path = './test.csv'  
+train_dataset_path = '../dataset/sard/train.csv' 
+test_dataset_path = '../dataset/sard/test.csv'  
 
 def load_code_dataset(dataset_path):
     dataset = [] 
@@ -13,7 +13,6 @@ def load_code_dataset(dataset_path):
         print(f"Error reading CSV file {dataset_path}: {str(e)}")
         return dataset
 
-    # 遍历数据框的每一行
     for index, row in df.iterrows():
         code = row['nor_code']  
         label = row['label'] - 1  
@@ -40,6 +39,7 @@ class DatasetWithTextLabel(object):
     def calculate_num_classes(self):
         labels = [label for _,label,_ in self.dataset]
         return len(set(labels)),labels
+
 
 
 
