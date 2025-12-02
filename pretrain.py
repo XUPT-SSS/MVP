@@ -13,7 +13,6 @@ from model.TransformerTextCNN import TransformerTextCNN
 from dataset import DatasetWithTextLabel
 
 
-# 全局配置与初始化
 SEED = 42
 DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 MAX_LENGTH = 128
@@ -21,10 +20,10 @@ NUM_EPOCHS = 100
 PRINT_STEP = 500
 OUTPUT_FILE = "./log/pretrain_results.txt"
 BEST_MODEL_PATH = "./check_point/pretrain.pth"
-PATIENCE = 5  # 训练 loss 连续 PATIENCE 次未下降则 early stop
+PATIENCE = 5 
 
 def seed_everything(seed=SEED):
-    """设置随机种子以确保可复现性"""
+    
     random.seed(seed)
     np.random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
@@ -36,14 +35,13 @@ def seed_everything(seed=SEED):
 seed_everything()
 print(f"[INFO] Using device: {DEVICE}")
 
-# 数据加载与准备
+
 tokenizer = AutoTokenizer.from_pretrained("../Codebert-base-uncased")
 train_dataset = DatasetWithTextLabel(split='train')
 train_dataloader = DataLoader(train_dataset, shuffle=True, batch_size=128)
 num_classes, _ = train_dataset.calculate_num_classes()
 vocab_size = tokenizer.vocab_size
 
-# 模型定义
 transformer_model = TransformerClassifier(
     vocab_size=vocab_size,
     d_model=512,
@@ -63,7 +61,6 @@ textcnn_model = TextCNN(
 
 model = TransformerTextCNN(transformer_model, textcnn_model).to(DEVICE)
 
-# 优化器定义
 optimizer = optim.SGD(
     model.parameters(),
     lr=5e-4,
@@ -71,7 +68,6 @@ optimizer = optim.SGD(
     weight_decay=1e-4
 )
 
-# 单轮训练函数
 def train(model, dataloader, optimizer, epoch):
     model.train()
     total_loss = 0.0
@@ -114,7 +110,6 @@ def train(model, dataloader, optimizer, epoch):
 
     return total_loss / len(dataloader)
 
-# 主训练函数
 def run():
     best_loss = float('inf')
     no_improve_count = 0
@@ -125,7 +120,7 @@ def run():
             best_loss = avg_loss
             no_improve_count = 0
 
-            # 保存最佳模型
+         
             torch.save({
                 'epoch': epoch,
                 'model_state_dict': model.state_dict(),
