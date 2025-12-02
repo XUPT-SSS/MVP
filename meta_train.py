@@ -19,16 +19,13 @@ from dataloader import EpisodeSampler
 
 
 def seed_everything(seed=42):
-    """
-    设置整个开发环境的随机种子，保证可复现性
-    """
     random.seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
-    # 保证cuDNN的确定性
+
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
